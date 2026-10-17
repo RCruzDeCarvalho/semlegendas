@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sem Legendas</title>
+<meta name="description" content="Sem Legendas. Autismo e PHDA, explicados em família. Guias gratuitos e uma app de comunicação feitos em casa por um pai autista.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap">
+<style>
+/* Layout concept: um ecrã de cinema em casa. A página é a imagem, as legendas
+   (barra escura, texto amarelo, entre parênteses rectos) são o que o site acrescenta. */
+:root {
+  --paper: #F3F5F7;      /* fundo, cinzento-azulado muito leve */
+  --ink: #15191F;        /* texto */
+  --muted: #5A6472;      /* texto secundário */
+  --line: #D6DCE3;       /* divisórias */
+  --sub-bg: #111418;     /* barra de legenda */
+  --sub-fg: #FFD84D;     /* amarelo de legenda */
+  --accent: #2E6F95;     /* azul para ligações */
+  --card: #FFFFFF;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif;
+  --font-cap: "Atkinson Hyperlegible Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12161B; --ink: #E9EDF2; --muted: #9BA6B3; --line: #2A323C;
+    --sub-bg: #05070A; --sub-fg: #FFD84D; --accent: #7FBDE0; --card: #1A2028;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12161B; --ink: #E9EDF2; --muted: #9BA6B3; --line: #2A323C;
+  --sub-bg: #05070A; --sub-fg: #FFD84D; --accent: #7FBDE0; --card: #1A2028;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+}
+.wrap {
+  max-width: 68rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--sub-fg); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.35rem; font-weight: 800; }
+p { margin: 0; max-width: 62ch; }
+
+/* legenda: o elemento-assinatura */
+.cap {
+  display: inline; font-family: var(--font-cap); font-weight: 600;
+  background: var(--sub-bg); color: var(--sub-fg);
+  padding: 0.15em 0.45em; line-height: 1.9;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.cap-label {
+  font-family: var(--font-cap); font-size: 0.8rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* topo */
+header.top { border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-block: 16px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; }
+.logo svg { flex: none; }
+nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; padding: 0; }
+nav a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 0.98rem; }
+nav a:hover { text-decoration: underline; }
+
+/* abertura */
+.hero .wrap { padding-block: clamp(48px, 9vw, 104px) clamp(40px, 7vw, 80px); display: grid; gap: 28px; }
+.hero h1 { font-size: clamp(3.2rem, 12vw, 7.5rem); font-weight: 800; letter-spacing: -0.03em; }
+.hero .cap { font-size: clamp(1.05rem, 2.6vw, 1.5rem); }
+.hero .lede { font-size: 1.2rem; color: var(--ink); }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  font-weight: 700; padding: 12px 20px; border-radius: 999px; border: 2px solid var(--ink);
+  color: var(--ink); background: transparent;
+}
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn:hover { transform: translateY(-1px); }
+.btn[aria-disabled="true"] { opacity: 0.55; cursor: default; transform: none; border-style: dashed; }
+@media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+
+section { border-top: 1px solid var(--line); }
+section > .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28px; }
+.sec-head { display: grid; gap: 10px; }
+
+/* sobre */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 32px 56px; align-items: start; }
+.about-grid > div { display: grid; gap: 16px; min-width: 0; }
+.transcript { display: grid; gap: 14px; padding: 24px; background: var(--sub-bg); border-radius: 6px; }
+.transcript p { font-family: var(--font-cap); color: var(--sub-fg); font-size: 0.98rem; line-height: 1.5; }
+.transcript .tc { color: #8A929C; font-size: 0.78rem; display: block; }
+@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* guias */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 24px; display: grid; gap: 14px; grid-template-rows: auto auto 1fr auto; min-width: 0;
+}
+.card .for { font-family: var(--font-cap); font-size: 0.82rem; color: var(--muted); }
+.card .btn { justify-self: start; }
+
+/* app */
+.app-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.app-grid > div { display: grid; gap: 18px; min-width: 0; }
+.feat { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.feat li { padding-left: 1.6em; position: relative; }
+.feat li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.tablet {
+  justify-self: center; width: min(100%, 360px); aspect-ratio: 4 / 3; max-width: 100%;
+  background: var(--sub-bg); border-radius: 22px; padding: 16px;
+  display: grid; grid-template-rows: auto 1fr; gap: 12px;
+}
+.tablet .bar { background: #1F252D; border-radius: 10px; padding: 8px 12px; font-family: var(--font-cap); color: var(--sub-fg); font-size: 0.9rem; }
+.tablet .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.tile { background: #F3F5F7; border-radius: 10px; display: grid; place-items: center; align-content: center; gap: 4px; font-size: 0.78rem; font-weight: 700; color: #15191F; padding: 6px; }
+.tile svg { width: 34px; height: 34px; }
+.note { font-size: 0.92rem; color: var(--muted); }
+@media (max-width: 760px) { .app-grid { grid-template-columns: 1fr; } }
+
+/* apoiar */
+.support { background: var(--sub-bg); color: #E9EDF2; border-top: none; }
+.support h2 { color: var(--sub-fg); }
+.support p { color: #C9D1DA; }
+.support .btn { border-color: var(--sub-fg); color: var(--sub-bg); background: var(--sub-fg); }
+
+/* aviso */
+.disclaimer p { color: var(--muted); font-size: 0.95rem; }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: 0.92rem; color: var(--muted); }
+footer a { color: var(--muted); }
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 24%22%3E%3Crect x=%221%22 y=%221%22 width=%2232%22 height=%2222%22 rx=%224%22 fill=%22%2315191F%22/%3E%3Crect x=%226%22 y=%2215%22 width=%2222%22 height=%224%22 rx=%221%22 fill=%22%23FFD84D%22/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Sem Legendas, início">
+      <svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true">
+        <rect x="1" y="1" width="32" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
+        <rect x="6" y="15" width="22" height="4" rx="1" fill="#FFD84D" stroke="currentColor" stroke-width="1"/>
+      </svg>
+      Sem Legendas
+    </a>
+    <nav aria-label="Secções">
+      <ul>
+        <li><a href="#guias">Guias</a></li>
+        <li><a href="#app">App</a></li>
+        <li><a href="#sobre">Quem somos</a></li>
+        <li><a href="#apoiar">Apoiar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Sem Legendas</h1>
+      <p><span class="cap">[autismo e PHDA, explicados em família]</span></p>
+      <p class="lede">Há conversas, regras e piadas que chegam sem legendas a quem está no espectro. E há crianças que chegam sem legendas a quem convive com elas. Aqui partilhamos as legendas que fomos escrevendo lá em casa, em forma de guias e de uma app, tudo gratuito.</p>
+      <div class="actions">
+        <a class="btn primary" href="#guias">Ver os guias</a>
+        <a class="btn" href="#app">Conhecer a app</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="sobre" aria-labelledby="sobre-t">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <span class="cap-label">Quem somos</span>
+          <h2 id="sobre-t">Uma casa com sete pessoas e muitas formas de comunicar</h2>
+          <p>O pai é autista e tem PHDA, com diagnóstico já em adulto. Alguns dos filhos também estão no espectro, cada um à sua maneira. Um fala pelos cotovelos sobre o que gosta, outro ainda não fala e diz-nos tudo de outras formas.</p>
+          <p>Fomos fazendo materiais para nos explicarmos à família, aos amigos e à escola. Quando percebemos que serviam a outras famílias, decidimos juntá-los aqui.</p>
+        </div>
+        <div class="transcript" aria-label="Exemplo de legendas de um dia lá em casa">
+          <p><span class="tc">07:42</span>[barulho de cinco miúdos ao pequeno-almoço]</p>
+          <p><span class="tc">07:43</span>[alguém tapa os ouvidos. Não é falta de educação]</p>
+          <p><span class="tc">07:44</span>[o mais novo aponta para o cartão das bolachas]</p>
+          <p><span class="tc">07:44</span>[música de vitória]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="guias" aria-labelledby="guias-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="cap-label">Guias</span>
+        <h2 id="guias-t">Para quem convive com crianças e jovens no espectro</h2>
+        <p>Guias curtos, ilustrados e em linguagem simples. Podes descarregar, imprimir e partilhar à vontade.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="for">[para família e amigos]</span>
+          <h3>Como estar com crianças autistas</h3>
+          <p>O que ajuda e o que atrapalha nas visitas, nas festas e no dia-a-dia. Para avós, tios, padrinhos e amigos que querem acertar.</p>
+          <a class="btn" href="#guias" aria-disabled="true">PDF disponível em breve</a>
+        </article>
+        <article class="card">
+          <span class="for">[para colegas e professores]</span>
+          <h3>Juntos na mesma turma</h3>
+          <p>Escrito para uma turma do secundário. Explica o autismo e a PHDA a quem partilha a sala de aula, sem drama e sem jargão.</p>
+          <a class="btn" href="#guias" aria-disabled="true">PDF disponível em breve</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="app" aria-labelledby="app-t">
+    <div class="wrap">
+      <div class="app-grid">
+        <div>
+          <span class="cap-label">App de comunicação</span>
+          <h2 id="app-t">Legenda <span style="font-weight:500;color:var(--muted);font-size:0.6em">(nome provisório)</span></h2>
+          <p>Começou como uma app feita em casa para um filho que ainda não fala. Funciona como os cartões do PECS, mas com voz. A criança toca numa imagem e o tablet diz a palavra.</p>
+          <ul class="feat">
+            <li>Cartões com imagem e voz, organizados por temas</li>
+            <li>Pensada para crianças que não falam ou falam pouco</li>
+            <li>Para tablets e telemóveis Android</li>
+            <li>Gratuita e sem publicidade</li>
+          </ul>
+          <a class="btn" href="#app" aria-disabled="true">Descarregar em breve</a>
+          <p class="note">A app complementa, não substitui, o trabalho com um terapeuta da fala.</p>
+        </div>
+        <div class="tablet" aria-hidden="true">
+          <div class="bar">[eu quero…]</div>
+          <div class="tiles">
+            <div class="tile"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="11" fill="#E8A33D"/><circle cx="13" cy="14" r="1.6" fill="#7A4B12"/><circle cx="20" cy="19" r="1.6" fill="#7A4B12"/><circle cx="15" cy="21" r="1.4" fill="#7A4B12"/></svg>bolacha</div>
+            <div class="tile"><svg viewBox="0 0 34 34"><path d="M10 6h14l-2 22H12z" fill="#7FBDE0"/><path d="M11 12h12l-1 14H12z" fill="#2E6F95"/></svg>água</div>
+            <div class="tile"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="11" fill="#5BAA6B"/><path d="M6 17h22M17 6c4 4 4 18 0 22M17 6c-4 4-4 18 0 22" stroke="#F3F5F7" stroke-width="1.6" fill="none"/></svg>bola</div>
+            <div class="tile"><svg viewBox="0 0 34 34"><rect x="8" y="14" width="18" height="12" rx="2" fill="#C96B5B"/><path d="M6 15l11-9 11 9" fill="none" stroke="#7A3328" stroke-width="2.5" stroke-linejoin="round"/><rect x="15" y="19" width="4" height="7" fill="#F3F5F7"/></svg>casa</div>
+            <div class="tile"><svg viewBox="0 0 34 34"><path d="M17 27s-10-6-10-13a5 5 0 0 1 10-2 5 5 0 0 1 10 2c0 7-10 13-10 13z" fill="#D9566B"/></svg>abraço</div>
+            <div class="tile"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="11" fill="none" stroke="#15191F" stroke-width="2.5"/><path d="M11 11l12 12" stroke="#15191F" stroke-width="2.5"/></svg>não</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apoiar" class="support" aria-labelledby="apoiar-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="cap-label" style="color:#9BA6B3">Apoiar</span>
+        <h2 id="apoiar-t">Tudo aqui é e vai continuar a ser gratuito</h2>
+        <p>Se estes materiais te ajudaram e quiseres retribuir, um café no Ko-fi paga o domínio, a impressão de guias para escolas e algumas horas de sono que trocamos por isto.</p>
+      </div>
+      <div><a class="btn" href="https://ko-fi.com/semlegendas" target="_blank" rel="noopener">Pagar um café no Ko-fi</a></div>
+    </div>
+  </section>
+
+  <section class="disclaimer" aria-label="Nota importante">
+    <div class="wrap">
+      <p>Não somos clínicos nem terapeutas. O que partilhamos é experiência de família, cruzada com o que fomos lendo e aprendendo com quem acompanha os nossos filhos. Não substitui avaliação nem acompanhamento profissional.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Sem Legendas · 2026 · Guias sob licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></span>
+    <span>Instagram <a href="https://instagram.com/semlegendas.pt" target="_blank" rel="noopener">@semlegendas.pt</a></span>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('[aria-disabled="true"]').forEach(function (a) {
+  a.addEventListener('click', function (e) { e.preventDefault(); });
+});
+</script>
+</body>
+</html>
