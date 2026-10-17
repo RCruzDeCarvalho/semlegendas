@@ -104,13 +104,23 @@ section > .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28p
 @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
 
 /* guias */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .card {
   background: var(--card); border: 1px solid var(--line); border-radius: 8px;
-  padding: 24px; display: grid; gap: 14px; grid-template-rows: auto auto 1fr auto; min-width: 0;
+  padding: 16px; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; align-items: start; min-width: 0;
 }
+.card .cover { width: 100%; height: auto; max-width: 100%; aspect-ratio: 331 / 468; border-radius: 4px; border: 1px solid var(--line); display: block; }
+.card-body { display: grid; gap: 10px; min-width: 0; }
+.card h3 { font-size: 1.2rem; }
 .card .for { font-family: var(--font-cap); font-size: 0.82rem; color: var(--muted); }
-.card .btn { justify-self: start; }
+.card .btn { justify-self: start; padding: 10px 16px; font-size: 0.95rem; }
+.card .meta { font-family: var(--font-cap); font-size: 0.78rem; color: var(--muted); }
+@media (min-width: 700px) {
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .card { grid-template-columns: 1fr; padding: 18px; }
+  .card-body { grid-template-rows: auto auto 1fr auto auto; height: 100%; }
+}
+@media (min-width: 1040px) { .cards { grid-template-columns: repeat(5, minmax(0, 1fr)); } .card h3 { font-size: 1.1rem; } .card p { font-size: 0.95rem; } }
 
 /* app */
 .app-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
@@ -208,34 +218,54 @@ footer a { color: var(--muted); }
       </div>
       <div class="cards">
         <article class="card">
+          <img class="cover" src="capas/o-meu-filho-e-autista.jpg" width="331" height="468" alt="Capa do guia O meu filho é autista. E agora?" loading="lazy">
+          <div class="card-body">
           <span class="for">[para pais, logo após o diagnóstico]</span>
           <h3>O meu filho é autista. E agora?</h3>
           <p>Para os primeiros tempos depois do diagnóstico, quando há muitas perguntas, muitas opiniões e pouca orientação.</p>
-          <a class="btn" href="#guias" aria-disabled="true">PDF disponível em breve</a>
+          <a class="btn" href="guias/o-meu-filho-e-autista.pdf" download>Descarregar PDF</a>
+          <span class="meta">28 páginas · 7,7 MB</span>
+          </div>
         </article>
         <article class="card">
+          <img class="cover" src="capas/crescer-ao-seu-ritmo.jpg" width="331" height="468" alt="Capa do guia Crescer ao seu ritmo" loading="lazy">
+          <div class="card-body">
           <span class="for">[para pais e educadores de infância]</span>
           <h3>Crescer ao seu ritmo</h3>
           <p>Autismo e PHDA na idade pré-escolar. Os primeiros sinais, o dia-a-dia em casa e o papel do jardim de infância.</p>
-          <a class="btn" href="#guias" aria-disabled="true">PDF disponível em breve</a>
+          <a class="btn" href="guias/crescer-ao-seu-ritmo.pdf" download>Descarregar PDF</a>
+          <span class="meta">24 páginas · 6,1 MB</span>
+          </div>
         </article>
         <article class="card">
+          <img class="cover" src="capas/aprender-a-sua-maneira.jpg" width="331" height="468" alt="Capa do guia Aprender à sua maneira" loading="lazy">
+          <div class="card-body">
           <span class="for">[para pais e professores do 1.º ciclo]</span>
           <h3>Aprender à sua maneira</h3>
           <p>Autismo e PHDA na escola primária. Mais horas sentado, mais regras, mais leitura e escrita, e como ajudar sem que custe tanto.</p>
-          <a class="btn" href="#guias" aria-disabled="true">PDF disponível em breve</a>
+          <a class="btn" href="guias/aprender-a-sua-maneira.pdf" download>Descarregar PDF</a>
+          <span class="meta">24 páginas · 6,8 MB</span>
+          </div>
         </article>
         <article class="card">
+          <img class="cover" src="capas/juntos-na-mesma-turma.jpg" width="331" height="468" alt="Capa do guia Juntos na mesma turma" loading="lazy">
+          <div class="card-body">
           <span class="for">[para colegas e professores]</span>
           <h3>Juntos na mesma turma</h3>
           <p>Explica o autismo e a PHDA a quem partilha a sala de aula no secundário, sem drama e sem jargão.</p>
-          <a class="btn" href="#guias" aria-disabled="true">PDF disponível em breve</a>
+          <a class="btn" href="guias/juntos-na-mesma-turma.pdf" download>Descarregar PDF</a>
+          <span class="meta">24 páginas · 7,7 MB</span>
+          </div>
         </article>
         <article class="card">
+          <img class="cover" src="capas/conviver-com-criancas-e-jovens-autistas.jpg" width="331" height="468" alt="Capa do guia Conviver com crianças e jovens autistas" loading="lazy">
+          <div class="card-body">
           <span class="for">[para família e amigos]</span>
           <h3>Conviver com crianças e jovens autistas</h3>
           <p>Um guia simples para avós, tios, padrinhos e amigos que querem estar por perto e acertar nas visitas e nas festas.</p>
-          <a class="btn" href="#guias" aria-disabled="true">PDF disponível em breve</a>
+          <a class="btn" href="guias/conviver-com-criancas-e-jovens-autistas.pdf" download>Descarregar PDF</a>
+          <span class="meta">16 páginas · 3,1 MB</span>
+          </div>
         </article>
       </div>
       <p class="note">Em preparação. "Meninas e meninos no espectro" e "O meu amigo é autista. E agora?"</p>
