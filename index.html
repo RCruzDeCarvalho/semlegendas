@@ -138,6 +138,8 @@ section > .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28p
 .tile { background: #F3F5F7; border-radius: 10px; display: grid; place-items: center; align-content: center; gap: 4px; font-size: 0.78rem; font-weight: 700; color: #15191F; padding: 6px; }
 .tile svg { width: 34px; height: 34px; }
 .note { font-size: 0.92rem; color: var(--muted); }
+.app-dl { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.app-dl .meta { font-family: var(--font-cap); font-size: 0.8rem; color: var(--muted); }
 @media (max-width: 760px) { .app-grid { grid-template-columns: 1fr; } }
 
 /* apoiar */
@@ -185,7 +187,7 @@ footer a { color: var(--muted); }
       <p class="lede">Há conversas, regras e piadas que chegam sem legendas a quem está no espectro. E há crianças que chegam sem legendas a quem convive com elas. Aqui partilhamos as legendas que fomos escrevendo lá em casa, em forma de guias e de uma app, tudo gratuito.</p>
       <div class="actions">
         <a class="btn primary" href="#guias">Ver os guias</a>
-        <a class="btn" href="#app">Conhecer a app</a>
+        <a class="btn" href="#app">Conhecer a Pictovoz</a>
       </div>
     </div>
   </div>
@@ -277,15 +279,20 @@ footer a { color: var(--muted); }
       <div class="app-grid">
         <div>
           <span class="cap-label">App de comunicação</span>
-          <h2 id="app-t">Legenda <span style="font-weight:500;color:var(--muted);font-size:0.6em">(nome provisório)</span></h2>
+          <h2 id="app-t">Pictovoz</h2>
           <p>Começou como uma app feita em casa para um filho que ainda não fala. Funciona como os cartões do PECS, mas com voz. A criança toca numa imagem e o tablet diz a palavra.</p>
           <ul class="feat">
-            <li>Cartões com imagem e voz, organizados por temas</li>
-            <li>Pensada para crianças que não falam ou falam pouco</li>
-            <li>Para tablets e telemóveis Android</li>
+            <li>Voz em português de Portugal</li>
+            <li>Cartões por categorias, como comer e beber, rotinas e brincadeiras</li>
+            <li>Tira de frase para juntar cartões, como no PECS</li>
+            <li>Modo pais para criar cartões com as vossas próprias fotos</li>
             <li>Gratuita e sem publicidade</li>
           </ul>
-          <a class="btn" href="#app" aria-disabled="true">Descarregar em breve</a>
+          <div class="app-dl">
+            <a class="btn primary" href="https://github.com/RCruzDeCarvalho/pictovoz/releases/latest/download/pictovoz.apk" download>Descarregar a Pictovoz</a>
+            <span class="meta">Para Android · versão mais recente</span>
+          </div>
+          <p class="note">A app não está na Play Store. Ao instalar, o Android pede autorização para instalar apps de fora da loja. É normal, basta aceitar para este ficheiro.</p>
           <p class="note">A app complementa, não substitui, o trabalho com um terapeuta da fala.</p>
         </div>
         <div class="tablet" aria-hidden="true">
