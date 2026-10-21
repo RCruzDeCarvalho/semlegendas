@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sem Legendas</title>
-<meta name="description" content="Sem Legendas. Autismo e PHDA, explicados em família. Guias gratuitos e uma app de comunicação feitos em casa por um pai autista.">
+<meta name="description" content="Sem Legendas. Autismo e PHDA, explicados em família. Guias gratuitos e apps feitas em casa por um pai autista, uma de comunicação e outra para quem adia tarefas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap">
@@ -143,6 +143,28 @@ section > .wrap { padding-block: clamp(48px, 8vw, 88px); display: grid; gap: 28p
 .app-dl .meta { font-family: var(--font-cap); font-size: 0.8rem; color: var(--muted); }
 @media (max-width: 760px) { .app-grid { grid-template-columns: 1fr; } }
 
+/* sem adiar */
+#sem-adiar { border-top: 1px dashed var(--line); }
+#sem-adiar .app-grid > .phone { order: -1; }
+@media (max-width: 760px) { #sem-adiar .app-grid > .phone { order: 0; } }
+.phone {
+  justify-self: center; width: min(100%, 270px); max-width: 100%;
+  background: var(--sub-bg); border-radius: 30px; padding: 18px 14px 20px;
+  display: grid; gap: 10px; box-shadow: 0 0 0 6px #1F252D inset;
+}
+.phone .bar { font-family: var(--font-cap); color: var(--sub-fg); font-size: 0.85rem; padding: 2px 6px; }
+.phone .hi { font-family: var(--font-display); font-weight: 800; color: #F3F5F7; font-size: 1.35rem; padding: 0 6px; }
+.phone .now { background: #1F252D; border-radius: 16px; padding: 14px; display: grid; gap: 8px; }
+.phone .tag { justify-self: start; font-family: var(--font-cap); font-size: 0.7rem; font-weight: 600; background: var(--sub-fg); color: var(--sub-bg); padding: 2px 8px; border-radius: 999px; }
+.phone .tag.soft { background: transparent; color: var(--sub-fg); border: 1px solid #5A5A3A; }
+.phone .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.phone .task { color: #F3F5F7; font-weight: 700; font-size: 1.05rem; line-height: 1.25; }
+.phone .step { color: #C9D1DA; font-size: 0.82rem; }
+.phone .go { justify-self: start; background: var(--sub-fg); color: var(--sub-bg); font-weight: 700; font-size: 0.85rem; border-radius: 999px; padding: 6px 14px; }
+.phone .row { display: flex; align-items: center; gap: 10px; background: #F3F5F7; border-radius: 12px; padding: 9px 12px; color: #15191F; font-size: 0.85rem; font-weight: 700; }
+.phone .row i { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #2E6F95; }
+.phone .row span { margin-left: auto; font-family: var(--font-cap); font-size: 0.7rem; color: #5A6472; font-weight: 600; }
+
 /* apoiar */
 .support { background: var(--sub-bg); color: #E9EDF2; border-top: none; }
 .support h2 { color: var(--sub-fg); }
@@ -172,7 +194,7 @@ footer a { color: var(--muted); }
     <nav aria-label="Secções">
       <ul>
         <li><a href="#guias">Guias</a></li>
-        <li><a href="#app">App</a></li>
+        <li><a href="#app">Apps</a></li>
         <li><a href="#sobre">Quem somos</a></li>
         <li><a href="#apoiar">Apoiar</a></li>
       </ul>
@@ -185,10 +207,10 @@ footer a { color: var(--muted); }
     <div class="wrap">
       <h1>Sem Legendas</h1>
       <p><span class="cap">[autismo e PHDA, explicados em família]</span></p>
-      <p class="lede">Há conversas, regras e piadas que chegam sem legendas a quem está no espectro. E há crianças que chegam sem legendas a quem convive com elas. Aqui partilhamos as legendas que fomos escrevendo lá em casa, em forma de guias e de uma app, tudo gratuito.</p>
+      <p class="lede">Há conversas, regras e piadas que chegam sem legendas a quem está no espectro. E há crianças que chegam sem legendas a quem convive com elas. Aqui partilhamos as legendas que fomos escrevendo lá em casa, em forma de guias e de apps, tudo gratuito.</p>
       <div class="actions">
         <a class="btn primary" href="#guias">Ver os guias</a>
-        <a class="btn" href="#app">Conhecer a Pictovoz</a>
+        <a class="btn" href="#app">Conhecer as apps</a>
       </div>
     </div>
   </div>
@@ -325,6 +347,43 @@ footer a { color: var(--muted); }
             <div class="tile"><svg viewBox="0 0 34 34"><path d="M17 27s-10-6-10-13a5 5 0 0 1 10-2 5 5 0 0 1 10 2c0 7-10 13-10 13z" fill="#D9566B"/></svg>abraço</div>
             <div class="tile"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="11" fill="none" stroke="#15191F" stroke-width="2.5"/><path d="M11 11l12 12" stroke="#15191F" stroke-width="2.5"/></svg>não</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sem-adiar" aria-labelledby="sa-t">
+    <div class="wrap">
+      <div class="app-grid">
+        <div>
+          <span class="cap-label">App para quem adia</span>
+          <h2 id="sa-t">Sem Adiar</h2>
+          <p>Fizemo-la para uma amiga com PHDA que vai adiando as tarefas que não têm data marcada. A regra é simples. Nenhuma tarefa fica sem data, e quando uma tarefa se arrasta a app ajuda a parti-la em passos pequenos em vez de a empurrar mais uma semana.</p>
+          <ul class="feat">
+            <li>Nenhuma tarefa sem data, e a data pode ir no próprio texto, como "ligar ao dentista na sexta"</li>
+            <li>Só três tarefas em destaque por dia, a primeira com o próximo passo à vista</li>
+            <li>Adiar conta, e à terceira vez a app pergunta se é para partir em passos, pedir ajuda ou largar sem culpa</li>
+            <li>Ajuda a partir tarefas em passos, com sugestões e um botão para pedir à IA</li>
+            <li>Blocos de 10 minutos para arrancar, lembretes que voltam e medalhas sem sequências para perder</li>
+            <li>Gratuita e sem publicidade</li>
+          </ul>
+          <div class="app-dl">
+            <a class="btn primary" href="https://github.com/RCruzDeCarvalho/sem-adiar/releases/latest/download/sem-adiar.apk" download>Descarregar o Sem Adiar</a>
+            <span class="meta">Para Android · versão mais recente</span>
+          </div>
+          <p class="note">Também não está na Play Store, por isso o Android pede autorização para instalar apps de fora da loja. A app avisa sozinha quando há uma versão nova.</p>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="bar">[terça · 3 coisas para hoje]</div>
+          <div class="hi">Bom dia</div>
+          <div class="now">
+            <div class="tags"><span class="tag">agora</span><span class="tag soft">adiada 2×</span></div>
+            <div class="task">Marcar o dentista</div>
+            <div class="step">→ encontrar o número</div>
+            <div class="go">▶ 10 minutos</div>
+          </div>
+          <div class="row"><i></i>Pagar a luz<span>hoje</span></div>
+          <div class="row"><i></i>Responder à escola<span>hoje</span></div>
         </div>
       </div>
     </div>
